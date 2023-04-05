@@ -9,3 +9,13 @@ resource "azurerm_servicebus_namespace" "servicebus" {
   minimum_tls_version           = var.minimum_tls_version
 
 }
+resource "azurerm_servicebus_topic" "servicebus_topic" {
+  for_each = { for i in var.topic_details : i.topic_name => i}
+  name = each.value.topic_name
+  namespace_id = azurerm_servicebus_namespace.servicebus.id
+  enable_partitioning = var.enable_partitioning
+  depends_on = [
+    azurerm_servicebus_namespace.servicebus
+  ]
+  
+}
