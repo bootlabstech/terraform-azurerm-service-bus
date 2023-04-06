@@ -1,5 +1,5 @@
 resource "azurerm_servicebus_namespace" "servicebus" {
-  name                          = var.ns_name
+  name                          = var.name
   location                      = var.location
   resource_group_name           = var.resource_group_name
   sku                           = var.sku
@@ -9,6 +9,7 @@ resource "azurerm_servicebus_namespace" "servicebus" {
   minimum_tls_version           = var.minimum_tls_version
 
 }
+
 resource "azurerm_servicebus_topic" "servicebus_topic" {
   for_each = { for i in var.topic_details : i.topic_name => i}
   name = each.value.topic_name
