@@ -1,4 +1,4 @@
-variable "name" {
+variable "ns_name" {
   description = "The name of the Redis instance."
   type        = string
 
@@ -43,6 +43,11 @@ variable "sku" {
 variable "topic_details" {
   description = "The minimum supported TLS version for this Service Bus Namespace. Valid values are: 1.0, 1.1 and 1.2. The current default minimum TLS version is 1.2."
   type        = number
+
+}
+variable "enable_partitioning" {
+  description = "The minimum supported TLS version for this Service Bus Namespace. Valid values are: 1.0, 1.1 and 1.2. The current default minimum TLS version is 1.2."
+  type        = string
 
 }
 variable "enable_partitioning" {
