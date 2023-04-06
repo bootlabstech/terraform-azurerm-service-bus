@@ -40,7 +40,7 @@ variable "sku" {
   type        = string
 
 }
-variable "name" {
+variable "topic_details" {
   description = "The minimum supported TLS version for this Service Bus Namespace. Valid values are: 1.0, 1.1 and 1.2. The current default minimum TLS version is 1.2."
   type        = number
 
